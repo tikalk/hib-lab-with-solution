@@ -1,0 +1,35 @@
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'idea'
+apply plugin: 'maven'
+
+
+repositories {
+    mavenCentral()
+}
+
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+sourceSets.main.output.resourcesDir = sourceSets.main.output.classesDir
+
+dependencies {
+    compile 'org.hibernate:hibernate-entitymanager:5.0.3.Final'
+    compile 'javax.el:javax.el-api:3.0.1-b04'
+    compile 'org.hibernate:hibernate-validator:5.2.2.Final'
+    compile 'mysql:mysql-connector-java:5.1.37'
+    testCompile 'org.hsqldb:hsqldb:2.3.3'
+    testCompile 'junit:junit:4.12'
+    
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '2.3'
+}
+
